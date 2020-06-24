@@ -13,7 +13,7 @@
     <main class="main">
         <section class="form-session">
             <form action="#" method="POST">
-                <div class="form__input">
+                <div class="form__input hidden">
                     <label for="usename">Username</label>
                     <input type="text" name="username">
                 </div>
@@ -33,7 +33,15 @@
                     <label for="lastName">Last Name</label>
                     <input type="text" name="lastName">
                 </div>
-                <button type="submit" class="form-buttom__create" >Create!</button>
+                <div class="form-buttons__edit">
+                    <button type="submit" class="form-buttom edit" >Edit</button>
+                    <button type="submit" class="form-buttom delete" >Delete</button>
+                </div>
+                <div class="form-buttons__edit">
+                    <button type="submit" class="form-buttom create" >Save</button>
+                    <button type="submit" class="form-buttom delete" >Cancel</button>
+                </div>
+                <button type="submit" class="form-buttom create" >Create!</button>
                 <a href="" class="link-login" >or login with existing user</a>
             </form>
         </section>

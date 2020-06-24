@@ -10,6 +10,7 @@ a{
     text-decoration: none;
 }
 
+
 /* Layout */
 
 .navbar{
@@ -62,20 +63,64 @@ a{
     margin: 6px 0px 6px 0px;
 }
 
-.form-buttom__create{
-    background: #5AAC44;
-    border: 1px solid #376b29;
+.form-buttom {
     border-radius: 3px;
     color: #ffffff;
     margin-top: 23px;
     padding: 6px 17px;
     width: 78px;
-    align-self: center;
 }
 
+.form-buttons__edit{
+    display: flex;
+    justify-content: space-between;
+}
+
+.create{
+    background: #5AAC44;
+    border: 1px solid #5AAC44;
+    align-self: center;
+
+}
+
+.edit{
+    background: #EBECF0;
+    border: 1px solid #EBECF0;
+    color: #000000;
+}
+
+.delete{
+    background: #CF513D;
+    border: 1px solid #CF513D;
+}
+
+.create:hover{
+    color: #5AAC44;
+    font-weight: bold;
+    background-color: transparent;
+}
+
+.edit:hover{
+    background: #000000;
+    color: #EBECF0;
+}
+
+.delete:hover{
+    color: #CF513D;
+    background: transparent;
+    font-weight: bold;
+}
 .link-login{
     color: #0079BF;
     font-size: 14px;
     margin-top: 17px;
     align-self: center;
+}
+
+.link-login:hover{
+    text-decoration: underline;
+}
+
+.hidden{
+    display: none;
 }
