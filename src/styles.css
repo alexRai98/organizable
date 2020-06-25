@@ -170,7 +170,8 @@ main {
   font-size: 18px;
   line-height: 20px;
   letter-spacing: 0.25px;
-  margin-left: 20px;
+  margin-left: 32px;
+  width: 100%;
 }
 
 .nav-item.active {
