@@ -1,89 +1,57 @@
-const token = `Token token="${localStorage.getItem("token")}"`;
-const url = "http://localhost:3000/boards";
+const colors = document.querySelectorAll(".color");
+colors.forEach((color) => {
+  color.style.background = color.dataset.color;
+});
+
+const btnNewBoard = document.querySelector(".btn-newBoard");
+btnNewBoard.addEventListener("click", openNewBoardForm);
+
+function openNewBoardForm() {
+  const overlay = document.querySelector(".overlay");
+  overlay.classList.remove("hidden");
+}
+
+const btnCloseForm = document.querySelector(".btn-closeForm");
+btnCloseForm.addEventListener("click", closeNewBoardForm);
+
+function closeNewBoardForm() {
+  const overlay = document.querySelector(".overlay");
+  overlay.classList.add("hidden");
+}
+
+function createBoard(data, destiny) {
+  const yourBoards = document.querySelector(destiny);
+  let modelType = destiny == ".your-boards" ? ".board-model" : ".starred-model";
+  const boardModel = document.querySelector(modelType);
+  const newBoard = boardModel.cloneNode(true);
+  newBoard.dataset.id = data.id;
+  newBoard.classList.remove("hidden");
+  newBoard.style.background = data.color;
+  newBoard.children[0].textContent = data.name;
+  yourBoards.append(newBoard);
+}
 
 function getBoards(token) {
   const options = {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `${token}`,
+      Authorization: token,
     },
   };
 
-  fetch(url, options)
-    .then((res) => res.json())
+  const boards = fetch(url, options)
+    .then((response) => response.json())
     .then((data) => {
-      if (!data.ok) {
-        console.log(data);
-      } else {
-        return data;
-      }
+      console.log(data);
+      let destiny;
+      data.forEach((element) => {
+        if (!element.closed) {
+          destiny = element.starred ? ".starred-boards" : ".your-boards";
+          createBoard(element, destiny);
+        }
+      });
     });
 }
 
-function getBoardId(id) {
-  const fetchurl = `${url}/${id}`;
-  const options = {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `${token}`,
-    },
-  };
-
-  fetch(fetchurl, options)
-    .then((res) => res.json())
-    .then((data) => {
-      if (!data.ok) {
-        console.log(data);
-      } else {
-        return data;
-      }
-    });
-}
-
-function createBoard(board) {
-  const options = {
-    method: "POST",
-    body: JSON.stringify(board),
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `${token}`,
-    },
-  };
-
-  fetch(url, options).then((res) => console.log(res));
-}
-
-function updateBoard(id, data) {
-  const fetchurl = `${url}/${id}`;
-
-  const options = {
-    method: "PATCH",
-    body: JSON.stringify(data),
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `${token}`,
-    },
-  };
-
-  fetch(fetchurl, options).then((res) => console.log(res));
-}
-
-const data = {
-  name: "Organizable Updated!!",
-};
-
-function deleteBoard(id) {
-  const fetchurl = `${url}/${id}`;
-
-  const options = {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `${token}`,
-    },
-  };
-
-  fetch(fetchurl, options).then((res) => console.log(res));
-}
+getBoards(token);
