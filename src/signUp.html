@@ -11,15 +11,15 @@
       <h1 class="keepable-title">{ organiz<span>able</span> }</h1>
     </header>
     <main class="main">
-      <section class="form-session">
-        <form action="#" method="POST">
-          <div class="form__input hidden">
+      <section class="form-session" >
+        <form id="form-sessions" name="singUp" method="POST">
+          <div class="form__input">
             <label for="usename">Username</label>
             <input type="text" name="username" />
           </div>
           <div class="form__input">
             <label for="password">Password</label>
-            <input type="password" name="password" />
+            <input type="password" name="password" required/>
           </div>
           <div class="form__input">
             <label for="email">Email</label>
@@ -33,16 +33,8 @@
             <label for="lastName">Last Name</label>
             <input type="text" name="lastName" />
           </div>
-          <div class="form-buttons__edit">
-            <button type="submit" class="form-buttom edit">Edit</button>
-            <button type="submit" class="form-buttom delete">Delete</button>
-          </div>
-          <div class="form-buttons__edit">
-            <button type="submit" class="form-buttom create">Save</button>
-            <button type="submit" class="form-buttom delete">Cancel</button>
-          </div>
           <button type="submit" class="form-buttom create">Create!</button>
-          <a href="" class="link-login">or login with existing user</a>
+          <a href="" class="link-login" name="go_login">or login with existing user</a>
         </form>
       </section>
     </main>
