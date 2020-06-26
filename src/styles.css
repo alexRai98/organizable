@@ -129,7 +129,7 @@ header {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 /* Boards */
@@ -182,17 +182,17 @@ main {
   color: #0079bf;
 }
 
-.boards {
+.boards-wrapper {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-.boards h2 {
+.boards-wrapper h2 {
   margin-left: 40px;
 }
 
-.card {
+.board {
   width: 190px;
   height: 96px;
   margin-right: 16px;
@@ -207,7 +207,7 @@ main {
   word-break: break-all;
 }
 
-.card-text {
+.board-text {
   font-weight: bold;
   font-size: 16px;
   line-height: 20px;
@@ -220,8 +220,14 @@ main {
   flex-wrap: wrap;
 }
 
-.star {
-  align-self: flex-end;
+.board-options {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.board-options img {
+  margin-left: 8px;
 }
 
 .btn-newBoard {
@@ -234,4 +240,82 @@ main {
   font-size: 16px;
   line-height: 20px;
   color: #172b4d;
+}
+
+.new-board {
+  z-index: 2;
+  display: flex;
+  position: absolute;
+  top: 65px;
+  left: 584px;
+}
+
+.new-board-input {
+  width: 190px;
+  height: 70px;
+  background-color: red;
+  margin-bottom: 5px;
+  border-radius: 3px;
+  color: #ffffff;
+}
+
+.new-board-input input {
+  width: 154px;
+  margin-top: 6px;
+  margin-left: 8px;
+  padding-left: 4px;
+  padding-top: auto;
+  background: rgba(255, 255, 255, 0.3);
+  border-style: none;
+  border-radius: 3px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.btn-closeForm {
+  cursor: pointer;
+}
+
+.new-board-input input::placeholder {
+  font-size: 16px;
+  line-height: 20px;
+  color: #ffffff;
+  vertical-align: middle;
+}
+
+.btn-createBoard {
+  width: 109px;
+  height: 32px;
+  border-style: none;
+  border-radius: 3px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #172b4d;
+  background: #f4f5f7;
+}
+
+.colors {
+  margin-left: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 90px;
+  height: 70px;
+}
+
+.color {
+  background: red;
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  margin-right: 5px;
+}
+
+.overlay {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  top: 0;
+  background: rgba(63, 63, 63, 0.8);
 }

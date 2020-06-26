@@ -27,23 +27,84 @@
           </li>
         </ul>
       </nav>
-      <div class="boards">
-        <h2>Your Starred Boards</h2>
+      <div class="boards-wrapper">
+        <h2><img src="images/star-black.png" alt="#" /> Your Starred Boards</h2>
         <div class="saved-boards starred-boards">
-          <div class="card">
-            <p class="card-text">Home</p>
-            <span class="star"><img src="images/star.png" alt="#" /></span>
+          <div class="board">
+            <p class="board-text">Home</p>
+            <div class="board-options">
+              <img class="icon-unstar" src="images/star.png" />
+            </div>
           </div>
         </div>
-        <h2>{ } Your Boards</h2>
+        <h2><img src="images/braces.png" alt="#" /> Your Boards</h2>
         <div class="saved-boards your-boards">
-          <div class="card">
-            <p class="card-text">Home</p>
-            <span class="star"><img src="images/star.png" alt="#" /></span>
+          <div class="board">
+            <p class="board-text">Home</p>
+            <div class="board-options">
+              <img class="icon-delete" src="images/x-square.png" />
+              <img class="icon-star" src="images/star.png" />
+            </div>
           </div>
+          <div class="board">
+            <p class="board-text">Home</p>
+            <div class="board-options">
+              <img class="icon-delete" src="images/x-square.png" />
+              <img class="icon-star" src="images/star.png" />
+            </div>
+          </div>
+          <div class="board">
+            <p class="board-text">Home</p>
+            <div class="board-options">
+              <img class="icon-delete" src="images/x-square.png" />
+              <img class="icon-star" src="images/star.png" />
+            </div>
+          </div>
+          <div class="board">
+            <p class="board-text">Home</p>
+            <div class="board-options">
+              <img class="icon-delete" src="images/x-square.png" />
+              <img class="icon-star" src="images/star.png" />
+            </div>
+          </div>
+          <!--
+          <div class="board">
+            <p class="board-text">Home</p>
+            <div class="board-options">
+              <img class="icon-x-square" src="images/x-square.png" />
+              <img class="icon-star" src="images/star.png" />
+              <img class="icon-unstar" src="images/star-yellow.png" />
+              <img class="icon-trash" src="images/trash.png" />
+              <img class="icon-recover" src="images/recover.png" />
+            </div>
+          </div>
+          -->
         </div>
         <button class="btn-newBoard">Create a new Board</button>
       </div>
     </main>
+    <div class="overlay hidden">
+      <div class="new-board">
+        <form action="#" class="new-board-form" method="POST">
+          <div class="new-board-input">
+            <input type="text" placeholder="Board title" />
+            <img src="images/x.png" alt="#" class="btn-closeForm" />
+          </div>
+          <input class="btn-createBoard" type="submit" value="Create Board" />
+        </form>
+        <div class="colors">
+          <div class="color blue" data-color="#0079BF"></div>
+          <div class="color mustard" data-color="#D29034"></div>
+          <div class="color dark-green" data-color="#519839"></div>
+          <div class="color red" data-color="#B04632"></div>
+          <div class="color purple" data-color="#89609E"></div>
+          <div class="color pink" data-color="#CD5A90"></div>
+          <div class="color green" data-color="#4BBF6B"></div>
+          <div class="color light-blue" data-color="#0AAECB"></div>
+          <div class="color grey" data-color="#838C90"></div>
+        </div>
+      </div>
+    </div>
+    <script src="main.js"></script>
   </body>
 </html>
