@@ -33,23 +33,23 @@ const sessionsUser =async(method,body,param,error)=>{
 
 const login = ()=>{
     const body ={
-            "username": inputs.username.value,
-            "password": inputs.password.value
+        "username": inputs.username.value,
+        "password": inputs.password.value
     }
     const errorMessage = "Username or password incorrect";
     sessionsUser("POST",body,"login",errorMessage);
 };
 
+
 const singUp = ()=>{
     const body ={
-            "user": 
-                {
-                    "username": inputs.username.value,
-                    "email": inputs.email.value,
-                    "first_name": inputs.firstName.value,
-                    "last_name": inputs.lastName.value,
-                    "password": inputs.password.value
-                }
+        "user": {
+            "username": inputs.username.value,
+            "email": inputs.email.value,
+            "first_name": inputs.firstName.value,
+            "last_name": inputs.lastName.value,
+            "password": inputs.password.value
+        }
     };
     const errorMessage = "Error creating account";
     sessionsUser("POST",body,"users",errorMessage);
