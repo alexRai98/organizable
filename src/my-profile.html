@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Organizable</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1 class="keepable-title">{ organiz<span>able</span> }</h1>
+    </header>
+    <main>
+      <nav class="navbar">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="my-boards.html">My Boards</a>
+          </li>
+          <li class="nav-item">
+            <a href="closed-boards.html">Closed Boards</a>
+          </li>
+          <li class="nav-item active" >
+            <a >My Profile</a>
+          </li>
+          <li class="nav-item" id="logout">
+            <a href="#">Logout</a>
+          </li>
+        </ul>
+      </nav>
+      <section class="form-session form-board">
+        <form id="form-sessions" name="singUp" method="POST">
+            <div class="form__input">
+              <label for="usename">Username</label>
+              <input type="text" name="username" />
+            </div>
+            <div class="form__input">
+              <label for="email">Email</label>
+              <input type="email" name="email" />
+            </div>
+            <div class="form__input">
+              <label for="firstName">Fist Name</label>
+              <input type="text" name="firstName" />
+            </div>
+            <div class="form__input">
+              <label for="lastName">Last Name</label>
+              <input type="text" name="lastName" />
+            </div>
+            <div class="form-buttons__edit">
+                <button  id="btnEdit" class="form-buttom edit">Edit</button>
+                <button  id="btnDelete" class="form-buttom delete">Delete</button>
+            </div>
+            <div class="form-buttons__edit hidden">
+                <button id="btnSave" class="form-buttom create">Save</button>
+                <button id="btnCancel" class="form-buttom delete">Cancel</button>
+            </div>
+          </form>
+      </section>
+    </main>
+  <script src="session2.js"></script>
+  </body>
+</html>

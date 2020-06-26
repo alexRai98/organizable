@@ -12,18 +12,18 @@
     </header>
     <main class="main">
       <section class="form-session">
-        <form action="#" method="POST">
+        <form method="POST" id="form-sessions" name="login">
           <div class="form__input ">
             <label for="usename">Username</label>
-            <input type="text" name="username" />
+            <input type="text" name="username"  required/>
           </div>
           <div class="form__input">
             <label for="password">Password</label>
-            <input type="password" name="password" />
+            <input type="password" name="password" required/>
           </div>
           
-          <button type="submit" class="form-buttom create">Login</button>
-          <a href="" class="link-login">crete a account</a>
+          <button class="form-buttom create" id="btnLogin">Login</button>
+          <a href="" class="link-login" name="go_signUp">crete a account</a>
         </form>
       </section>
     </main>
