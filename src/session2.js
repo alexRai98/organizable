@@ -32,6 +32,24 @@ const logout =async()=>{
     }
 }
 
+const isLogin = async()=>{
+    const arrguments={
+        method: 'GET',
+        mode: 'cors',
+        headers:{
+            'Authorization': `Token token="${getUser().token}"`,
+            'Content-Type': "application/json",
+        }
+    }
+    const response = await fetchToServer(`${URL_BASE}users/${getUser().id}`,arrguments);
+    console.log(response);
+    if(response.ok){
+        console.log('estamos logeado');
+    }else{
+        window.location.href = "login.html";
+    }
+}
+
 btnLogout.addEventListener('click',(e)=>{
     e.preventDefault();
     logout();
@@ -42,15 +60,7 @@ const loadInputs = ()=>{
         const name = inputs[input].name
         inputs[input].value= getUser()[name];
     }
-}
-
-loadInputs();
-
-btnEdit.addEventListener('click',(e)=>{
-    e.preventDefault();
-    formButtons[0].classList.add("hidden");
-    formButtons[1].classList.remove("hidden");
-});
+}       
 
 const editUser = async()=>{
     const arrguments={
@@ -81,19 +91,6 @@ const editUser = async()=>{
     }
 }
 
-btnSave.addEventListener('click',(e)=>{
-    e.preventDefault();
-    editUser();
-    formButtons[0].classList.remove("hidden");
-    formButtons[1].classList.add("hidden");
-})
-
-btnCancel.addEventListener('click',(e)=>{
-    e.preventDefault(); 
-    formButtons[0].classList.remove("hidden");
-    formButtons[1].classList.add("hidden");
-})
-
 const deleteUser = async()=>{
     const arrguments={
         method: 'DELETE',
@@ -112,7 +109,30 @@ const deleteUser = async()=>{
     }
 }
 
+isLogin();
+loadInputs();
+
+btnEdit.addEventListener('click',(e)=>{
+    e.preventDefault();
+    formButtons[0].classList.add("hidden");
+    formButtons[1].classList.remove("hidden");
+});
+
+btnSave.addEventListener('click',(e)=>{
+    e.preventDefault();
+    editUser();
+    formButtons[0].classList.remove("hidden");
+    formButtons[1].classList.add("hidden");
+})
+
+btnCancel.addEventListener('click',(e)=>{
+    e.preventDefault(); 
+    formButtons[0].classList.remove("hidden");
+    formButtons[1].classList.add("hidden");
+})
+
 btnDelete.addEventListener('click',(e)=>{
     e.preventDefault(); 
     deleteUser();
 })
+
