@@ -1,4 +1,5 @@
 const getUser = () => JSON.parse(localStorage.getItem("user"));
+const userId = getUser.id;
 const token = `Token token="${getUser().token}"`;
 let url = "https://peaceful-inlet-99002.herokuapp.com/boards";
 const URL_BASE = "https://peaceful-inlet-99002.herokuapp.com/";

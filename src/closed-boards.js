@@ -28,13 +28,14 @@ function createClosedBoard(data) {
   newBoard.style.background = data.color;
   newBoard.children[0].textContent = data.name;
   const trashbtn = newBoard.querySelector(".board-options .icon-trash");
-  trashbtn.dataset.id = data.id;
+  const recoverbtn = newBoard.querySelector(".board-options .icon-recover");
+  recoverbtn.addEventListener("click", recoverBoard);
   trashbtn.addEventListener("click", deleteBoard);
   yourBoards.append(newBoard);
 }
 
 function deleteBoard() {
-  id = this.dataset.id;
+  id = this.parentElement.parentElement.dataset.id;
   url += `/${id}`;
   const options = {
     method: "DELETE",
@@ -44,11 +45,29 @@ function deleteBoard() {
     },
   };
 
-  fetch(url, options)
-    .then((response) => {
-      response.json();
-    })
-    .then((data) => {
-      return data;
-    });
+  fetch(url, options).then(() => {
+    location.reload();
+  });
+}
+
+function recoverBoard() {
+  id = this.parentElement.parentElement.dataset.id;
+  url += `/${id}`;
+
+  const options = {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: token,
+    },
+    body: JSON.stringify({
+      board: {
+        closed: false,
+      },
+    }),
+  };
+
+  fetch(url, options).then(() => {
+    location.reload();
+  });
 }
