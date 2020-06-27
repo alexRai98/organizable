@@ -2,7 +2,9 @@ const inputs = document.getElementsByTagName("input");
 const sessionsForm = document.querySelector("#form-sessions");
 const linkRedirect = document.querySelector('.link-login');
 
-const URL_BASE ="https://peaceful-inlet-99002.herokuapp.com/";
+// const URL_BASE ="https://peaceful-inlet-99002.herokuapp.com/";
+
+// const getUser =()=> JSON.parse(localStorage.getItem('user'));
 
 const getData = async(enpoint,obj)=>{
     const response = await fetch(enpoint,obj);
@@ -72,3 +74,4 @@ linkRedirect.addEventListener('click',(e)=>{
         window.location.href = "signUp.html";
     }
 })
+
